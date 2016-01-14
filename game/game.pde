@@ -16,6 +16,9 @@ void draw() {
   chip.displaychip();
   chip.update();
   chip.fall();
+  if(chip.lost()){
+    chip.reset();
+  }
   for (int i = p.size()-1; i>=0; i--) {
       Plate o=p.get(i);
       if(o.isInContactWithChip(chip.loc)){

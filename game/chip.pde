@@ -48,8 +48,17 @@ class Chip {
       return false;
     }
 
-   
+   boolean lost(){
+       if(loc.y>height){
+         return true;
+       }
+       return false;
+   }
+   void reset(){
+     loc.set(width/2-15, height-height/5);
+   }
     void jump() {
-      vel.y = -abs(vel.y);
+      vel.y = -12;
+      
     }
   }

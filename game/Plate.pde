@@ -20,7 +20,7 @@ class Plate {
     }
   }
    boolean isInContactWithChip(PVector direction) {
-      if (direction.y>loc.y+6&&direction.y<loc.y-6&&loc.x-50<direction.x+27&&loc.x+50>direction.x){
+      if (direction.y==loc.y&&loc.x-50<direction.x+27&&loc.x+50>direction.x&&chip.isFalling()){
        return true;
       }
       return false;

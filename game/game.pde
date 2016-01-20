@@ -19,8 +19,7 @@ void setup() {
   p.add(new Plate(random(width), 300));
   p.add(new Plate(random(width), 200));
   chip = new Chip();
-  //  chip = loadImage();
-  //  chipjump = loadImage();
+
 }
 void draw() {
   background(255);

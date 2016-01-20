@@ -29,12 +29,17 @@ void draw() {
       println("caught chip in frame " + frameCount);
       //o.update();
       chip.jump();
+      if (o.isItBroken()) {
+      }else{
+        println("Chip should be dead");
+        chip.isFalling();
+      }
     }
   }
 
   for (int i = platform.size()-1; i>=0; i--) {
     Plate o=platform.get(i);
-    if (platform.size()<=6) {    //Limits the amount 
+    if (platform.size()<=6) {    //Limits the amount of plates
       platform.add(new Plate(o));
     }
     o.create();
@@ -47,6 +52,8 @@ void draw() {
       platform.remove(i);
       platform.add(new Plate(o));
     }
+
+    //Just for checking purposes
     if (keyPressed && keyCode==UP) {
       platform.add(new Plate(o));
     }

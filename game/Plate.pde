@@ -1,12 +1,14 @@
 class Plate {
   PVector loc;
   int xsize, ysize;
+  float randy;
 
   //Constructor 1
   Plate() {
     loc= new PVector(width/2, height-height/10);
     xsize = 100;
     ysize = 10;
+    randy= random(0, 1);
   }
 
   //Constructor 2
@@ -14,12 +16,30 @@ class Plate {
     loc= new PVector(random(old.loc.x-100, old.loc.x+100), random(old.loc.y-200, old.loc.y-10));
     xsize = 100;
     ysize = 10;
+    randy= random(0, 1);
   }
 
-  // Makes a new plate
-  void create() {
+  //Constructor 3
+  Plate(Plate old, float a) {
+    loc= new PVector(random(old.loc.x-100, old.loc.x+100), random(old.loc.y-200, old.loc.y-10));
+    xsize = 100;
+    ysize = 10;
+    randy= random(0, a);
+  }
+
+  //Reular Platforms
+  void regPlate() {    
     fill(255);
     ellipse(loc.x, loc.y, xsize, ysize);
+  }
+
+  // Makes a new plate (REGULAR, BROKEN, BOWL)
+  void create() {
+    if (isItBroken()) {
+      regPlate();
+    } else {
+      brokenPlate();
+    }
   }
 
   //Checks to see if plate is still on screen
@@ -54,23 +74,24 @@ class Plate {
   }
 
 
-  boolean tooClose( PVector a, PVector b) {
-    if ( dist(a.x, a.y, b.x, b.y)< 10) {
+
+  //The broken Plate
+  void brokenPlate() {
+    fill(255);
+    ellipse(loc.x, loc.y, xsize, ysize);
+    //line(loc.x,loc.y-ysize/2,loc.x,loc.y+ysize/2);
+    line(loc.x,loc.y-ysize/2,loc.x-5,loc.y-2);
+    line(loc.x-5,loc.y-2,loc.x,loc.y);
+    line(loc.x,loc.y,loc.x+5,loc.y+2);
+    line(loc.x+5,loc.y+2,loc.x,loc.y+ysize/2);
+  }
+
+  //Checks to see if plate should be broken
+  boolean isItBroken() {
+    if ( randy < .4) {
       return true;
     } else {
       return false;
     }
   }
-
-  void brokenPlate() {
-    fill(255);
-
-    triangle(loc.x+10, loc.y, loc.x-10, loc.y, loc.x, loc.y+10);
-    ellipse(loc.x, loc.y, xsize, ysize);
-  }
-
-  /*boolean isItBroken(){
-   if (){
-   }
-   }*/
 }

@@ -18,9 +18,15 @@ void setup() {
 }
 void draw() {
   background(255);
-  chip.displaychip();    ///shows Chip
+  
   chip.update();    //Updates Chip
   chip.fall();    //Makes chip fall
+  if(chip.isFalling()){
+    chip.displaychip();
+  }//shows Chip
+  else{
+    chip.displaychipjump();
+  }
   for (int i = platform.size()-1; i>=0; i--) {
 
     Plate o= platform.get(i);
@@ -29,6 +35,7 @@ void draw() {
       println("caught chip in frame " + frameCount);
       //o.update();
       chip.jump();
+      
     }
   }
 

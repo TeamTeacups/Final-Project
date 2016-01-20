@@ -47,9 +47,9 @@ class Chip {
   void displaychip() {
     image(chip,loc.x,loc.y,xsize,ysize);
   }
-  //  void displaychipjump(float x,float y) {
-  //   image(chipjump, x,y);
-  // }
+  void displaychipjump() {
+  image(chipjump,loc.x,loc.y,xsize,ysize);
+  }
 
   //Is Chip REALLY falling?
   boolean isFalling() {

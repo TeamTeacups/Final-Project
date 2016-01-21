@@ -1,35 +1,32 @@
 class Enemies {// comment later 
   PVector loc;
-  PImage missPotts, duster; 
+  PImage img; 
   float scaleFactor, randy, sz;
   float x, y;
 
-  Enemies( float a, float b) {
-
-    missPotts= loadImage("clippotts6.gif");
-    duster=loadImage("duster.gif");
-    loc=new PVector (a, b);
+  Enemies() {
+    if (random(1) < .5) {
+      img = loadImage("clippotts6.gif");
+    } else {
+      img = loadImage("duster.gif");
+    }
+    loc=new PVector (random(width), 0);
     scaleFactor=.25;
     randy=random(0, 1);
   }
 
-  void duster() {
-    image(duster, loc.x, loc.y, duster.width*scaleFactor, duster.height*scaleFactor);
+  void display() {
+    image(img, loc.x, loc.y, img.width*scaleFactor, img.height*scaleFactor);
   }
 
-  void missPotts() {
-    image(missPotts, x, y, missPotts.width*scaleFactor, missPotts.height*scaleFactor);
-    x = 200;
-    y += 4;
-  }
-
-  boolean isInContactWith(Chip doritos) {
-    if (dist(doritos.loc.x, doritos.loc.y, loc.x, loc.y) <= sz) {
+  boolean isInContactWith(Chip chip) {
+    if (dist(chip.loc.x, chip.loc.y, loc.x, loc.y) <= 60) {
       return true;
     } else {
       return false;
     }
   }
+  
   boolean makeAChoice() {
     if (randy>.5) {
       return true;
@@ -38,14 +35,8 @@ class Enemies {// comment later
     }
   }
 
-  void create() {
-    if (makeAChoice()) {
-      duster();
-    } else {
-      missPotts();
-    }
-  }
   void update() {
     loc.y+=4;
   }
+  
 }

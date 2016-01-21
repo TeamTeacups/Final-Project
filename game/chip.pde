@@ -63,4 +63,7 @@ class Chip {
   void jump() {
     vel.y = -12;
   }
+  void hitBottom(){
+   loc.y += 4;
+  }
 }

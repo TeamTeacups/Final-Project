@@ -1,12 +1,12 @@
 boolean play = false;
 Chip chip;
 ArrayList<Plate> platform = new ArrayList<Plate>();
+ArrayList<Enemies> enemies = new ArrayList<Enemies>();
 Enemies e;
 
 
 void setup() {
   size(500, 800);
-  e = new Enemies( random(0, 500), random(0, 800));
 
   //Original Plate
   for ( int i=0; i<1; i++) {
@@ -18,34 +18,53 @@ void setup() {
   //  chip = loadImage();
   //  chipjump = loadImage();
 }
+
 void draw() {
   background(255);
 
+  //decide whether to add an enemy
+  if (random(1) < .05 && enemies.size() == 0) {
+    enemies.add(new Enemies());
+  }
+
+  for (int i = 0; i < enemies.size(); i++) {
+    //e.create();
+    Enemies e = enemies.get(i);
+    e.update();
+    e.display();
+    if (e.loc.y > height) {
+      enemies.remove(i);
+    }
+  }
+
   chip.update();    //Updates Chip
   chip.fall();    //Makes chip fall
+
   if (chip.isFalling()) {
     chip.displaychip();
-  }//shows Chip
-  else {
+  } else {
     chip.displaychipjump();
   }
   for (int i = platform.size()-1; i>=0; i--) {
 
-    Plate o= platform.get(i);
+    Plate o = platform.get(i);
 
     if (o.isInContactWithChip(chip.loc)) {
       println("caught chip in frame " + frameCount);
       //o.update();
       chip.jump();
     }
-    
-    if(e.isInContactWithChip(Chip chip)){
-      chip.fall();
+    for (int j = 0; j < enemies.size(); j++) {
+      Enemies e = enemies.get(j);  
+      if (e.isInContactWith(chip)) {
+        chip.hitBottom();
+      }
     }
-  }
 
-  for (int i = platform.size()-1; i>=0; i--) {
-    Plate o=platform.get(i);
+    //for (int i = platform.size()-1; i>=0; ) {
+    //  i--;
+    //  Plate o = platform.get(i);
+
     if (platform.size()<=6) {    //Limits the amount 
       platform.add(new Plate(o));
     }
@@ -63,10 +82,8 @@ void draw() {
       platform.add(new Plate(o));
     }
   }
-  e.duster();
-  e.missPotts();
-  e.create();
 }
+
 
 void keyPressed() {
   chip.key();

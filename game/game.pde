@@ -1,10 +1,12 @@
 boolean play = false;
 Chip chip;
 ArrayList<Plate> platform = new ArrayList<Plate>();
+Enemies e;
 
 
 void setup() {
   size(500, 800);
+  e = new Enemies( random(0, 500), random(0, 800));
 
   //Original Plate
   for ( int i=0; i<1; i++) {
@@ -18,13 +20,13 @@ void setup() {
 }
 void draw() {
   background(255);
-  
+
   chip.update();    //Updates Chip
   chip.fall();    //Makes chip fall
-  if(chip.isFalling()){
+  if (chip.isFalling()) {
     chip.displaychip();
   }//shows Chip
-  else{
+  else {
     chip.displaychipjump();
   }
   for (int i = platform.size()-1; i>=0; i--) {
@@ -35,7 +37,10 @@ void draw() {
       println("caught chip in frame " + frameCount);
       //o.update();
       chip.jump();
-      
+    }
+    
+    if(e.isInContactWithChip(Chip chip)){
+      chip.fall();
     }
   }
 
@@ -58,6 +63,9 @@ void draw() {
       platform.add(new Plate(o));
     }
   }
+  e.duster();
+  e.missPotts();
+  e.create();
 }
 
 void keyPressed() {

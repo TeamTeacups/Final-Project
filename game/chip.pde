@@ -5,13 +5,13 @@ class Chip {
   float chipx, chipy;
   float ysize, xsize;
 
-  //Constructor
+
   Chip(Plate bottom) {
     chip = loadImage("chip.jpg");
     chipjump = loadImage("chipjump.gif");
-    xsize=60;
-    ysize=80;
     loc = new PVector();
+    xsize= 60;
+    ysize= 80;
     loc.set(bottom.loc.x, bottom.loc.y - ysize/2);
     vel = new PVector();
     vel.set(0, 12);
@@ -27,15 +27,17 @@ class Chip {
       }
     }
   }
+
   //Chip falls
+
   void fall() {
     loc.add(vel);
     vel.y += gravity;
   }
 
+
   //wraps Chip around the screen
   void update() {
-
     if (loc.x+chipx > width) {
       loc.x=0;
     } else if (loc.x< 0) {
@@ -43,23 +45,33 @@ class Chip {
     }
   }
 
-  //Shows the image of chip
-  void displaychip() {
-    image(chip,loc.x,loc.y,xsize,ysize);
-  }
   //  void displaychipjump(float x,float y) {
   //   image(chipjump, x,y);
   // }
 
-  //Is Chip REALLY falling?
+  void displaychip() {
+    image(chip, loc.x, loc.y);
+  }
+  void displaychipjump(float x, float y) {
+    image(chipjump, x, y);
+  }
   boolean isFalling() {
-    if (vel.y>0){
-    return true;
+    if (vel.y>0) {
+      return true;
     }
     return false;
   }
 
-  //Make sure Chip's intitial velocity
+  boolean lost() {
+    if (loc.y>height) {
+      return true;
+    }
+    return false;
+  }
+  void reset() {
+    loc.set(width/2-15, height-height/5);
+  }
+
   void jump() {
     vel.y = -12;
   }

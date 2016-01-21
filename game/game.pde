@@ -6,6 +6,7 @@ ArrayList<Plate> platform = new ArrayList<Plate>();
 void setup() {
   size(500, 800);
 
+
   //Original Plate
   for ( int i=0; i<1; i++) {
     platform.add(new Plate());
@@ -27,12 +28,16 @@ void draw() {
 
     if (o.isInContactWithChip(chip.loc)) {
       println("caught chip in frame " + frameCount);
-      //o.update();
+      o.update();
       chip.jump();
       if (o.isItBroken()) {
-      }else{
+      } else {
         println("Chip should be dead");
         chip.isFalling();
+      }
+
+      if (chip.lost()) {
+        chip.reset();
       }
     }
   }
@@ -59,6 +64,7 @@ void draw() {
     }
   }
 }
+
 
 void keyPressed() {
   chip.key();

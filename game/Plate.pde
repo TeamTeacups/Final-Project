@@ -55,8 +55,9 @@ class Plate {
   boolean isInContactWithChip(PVector direction) {
     if (direction.y>loc.y-ysize/2 && direction.y<loc.y+ysize/2 && loc.x-xsize/2<direction.x+27 && loc.x+xsize/2>direction.x) {
       return true;
+    } else {
+      return false;
     }
-    return false;
   }
 
   //Makes plates move down
@@ -80,10 +81,10 @@ class Plate {
     fill(255);
     ellipse(loc.x, loc.y, xsize, ysize);
     //line(loc.x,loc.y-ysize/2,loc.x,loc.y+ysize/2);
-    line(loc.x,loc.y-ysize/2,loc.x-5,loc.y-2);
-    line(loc.x-5,loc.y-2,loc.x,loc.y);
-    line(loc.x,loc.y,loc.x+5,loc.y+2);
-    line(loc.x+5,loc.y+2,loc.x,loc.y+ysize/2);
+    line(loc.x, loc.y-ysize/2, loc.x-5, loc.y-2);
+    line(loc.x-5, loc.y-2, loc.x, loc.y);
+    line(loc.x, loc.y, loc.x+5, loc.y+2);
+    line(loc.x+5, loc.y+2, loc.x, loc.y+ysize/2);
   }
 
   //Checks to see if plate should be broken

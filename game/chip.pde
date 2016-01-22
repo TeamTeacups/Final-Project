@@ -45,9 +45,19 @@ class Chip {
     }
   }
 
+<<<<<<< HEAD
   //  void displaychipjump(float x,float y) {
   //   image(chipjump, x,y);
   // }
+=======
+  //Shows the image of chip
+  void displaychip() {
+    image(chip,loc.x,loc.y,xsize,ysize);
+  }
+  void displaychipjump() {
+  image(chipjump,loc.x,loc.y,xsize,ysize);
+  }
+>>>>>>> refs/remotes/origin/master
 
   void displaychip() {
     image(chip, loc.x, loc.y);

@@ -10,10 +10,14 @@ class Plate {
     ysize = 10;
     randy= random(0, 1);
   }
-
+  Plate(float x, float y){
+    loc = new PVector(x,y);
+    xsize = 100;
+    ysize = 10;
+  }
   //Constructor 2
   Plate(Plate old) {
-    loc= new PVector(random(old.loc.x-100, old.loc.x+100), random(old.loc.y-200, old.loc.y-10));
+    loc= new PVector(random(old.loc.x-200, old.loc.x+200), 0);
     xsize = 100;
     ysize = 10;
     randy= random(0, 1);
@@ -62,7 +66,9 @@ class Plate {
 
   //Makes plates move down
   void update() {
-    loc.y+=4;
+    
+      loc.y+=10;
+    
   }
 
   //Checks to see if plate is at that basepoint

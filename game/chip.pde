@@ -49,6 +49,7 @@ class Chip {
   void displaychip() {
     image(chip,loc.x,loc.y,xsize,ysize);
   }
+<<<<<<< HEAD
   
   //Shows chip jumping
   void displaychipjump() {
@@ -56,6 +57,13 @@ class Chip {
   }
   
   //Is Chip really falling?
+=======
+  void displaychipjump() {
+  image(chipjump,loc.x,loc.y,xsize,ysize);
+  }
+
+  //Is Chip REALLY falling?
+>>>>>>> refs/remotes/origin/master
   boolean isFalling() {
     if (vel.y>0) {
       return true;
@@ -74,6 +82,6 @@ class Chip {
   }
 
   void jump() {
-    vel.y = -12;
+    vel.y = -10;
   }
 }

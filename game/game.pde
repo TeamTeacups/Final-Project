@@ -14,10 +14,11 @@ void setup() {
   }
   //Chip stuff
   chip = new Chip(platform.get(0));
-  
+
   //Powerup stuff
-  
-  for(int i =0; i<3; i++){
+
+
+  for (int i =0; i<3; i++) {
     powerup.add(new Powerups(random(width), random(height)));
   }
 }
@@ -25,26 +26,26 @@ void draw() {
   background(255);
   chip.update();    //Updates Chip
   chip.fall();    //Makes chip fall
-  
-  
+
+
   if (chip.isFalling()) {
     chip.displaychip();
   }//shows Chip
   else {
     chip.displaychipjump(); //shows pic of chip jumping
   }
-  if (down&&t.loc.y<height-height/8) { //if plate jumped on isn't on bottom (base point)
+  if (down &&t.loc.y<height-height/8) { //if plate jumped on isn't on bottom (base point)
     for (int j = 0; j<platform.size(); j++) {//all plates move down
       Plate k = platform.get(j);
       k.update();
     }
-   for (int j = 0; j<powerup.size(); j++) {//all plates move down
+    for (int j = 0; j<powerup.size(); j++) {//all plates move down
       Powerups fun = powerup.get(j);
       fun.update();
-        }
+    }
   }
-  
-  
+
+
   for (int i = platform.size()-1; i>=0; i--) {
 
     Plate o= platform.get(i); //gets each plate
@@ -79,15 +80,29 @@ void draw() {
       platform.add(new Plate(o));
     }
   }
-  
+
   //Powerup for statement
-  for (int i = powerup.size()-1; i>=0; i--){
+  for (int i = powerup.size()-1; i>=0; i--) {
     Powerups fun = powerup.get(i);
-    if (powerup.size()<=5){
-      powerup.add(new Powerups(random(width),random(height)));
+    if (powerup.size()<=5) {
+      powerup.add(new Powerups(random(width), 0));//ADDS NEW POWERUPS
     }
     fun.display();
-    fun.newLife();
+    if (fun.newLife()) {    //IF A POWERUP GOES OUT OF BOUNDS SEND IT BACK TO THE TOP
+      powerup.remove(i);
+    }
+    if (fun.isInContactWithChip(chip.loc)) {    //iF TOUCHING A POWERUP
+      println("I'm touching a friend!");
+      if (fun.whoIsIt()&&chip.isFalling()) {
+        println("who am i touching?.... lumiere!");    //GET A BOOST!
+        down=true;
+      } else {          //SLOW GRAVITY
+        fun.timerInMotion();
+      }
+    }
+    if (random(1) < .05 && powerup.size() == 0) {
+      powerup.add(new Powerups(random(width), 0));
+    }
   }
 }
 

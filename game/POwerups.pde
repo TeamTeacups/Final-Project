@@ -3,6 +3,7 @@ class Powerups {
   PVector loc;
   float xsize, ysize;
   PImage cogsworth, lumiere;
+  float timer=0;
 
  //Constrructor 1
   Powerups(float p, float g) {
@@ -44,9 +45,11 @@ class Powerups {
     loc.y+=10;
   }
   
-  void newLife(){
+  boolean newLife(){
     if (loc.y>=height){
-      loc.y=0;
+      return true;
+    }else{
+      return false;
     }
   }
 
@@ -58,6 +61,31 @@ class Powerups {
     }
   }
   
-  //boolean isInContactWith(Chip doritos){
-  //}
+  //Checks to see if Chip is touching a powerup
+  boolean isInContactWithChip(PVector direction) {
+    if (direction.y+60>loc.y-ysize/2 && direction.y<loc.y+ysize/2 && loc.x-xsize/2<direction.x+27 && loc.x+xsize/2>direction.x) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  ///Clogsworth things
+  void timerInMotion() {
+    println(timer);
+    timer+=1;
+  }
+
+  void resetTimer() {
+    timer=0;
+    println(timer);
+  }
+
+  boolean timeIsUp() {
+    if (timer==50) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

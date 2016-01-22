@@ -4,6 +4,7 @@ class Chip {
   PImage chip, chipjump;
   float chipx, chipy;
   float ysize, xsize;
+  float timer;
 
 
   Chip(Plate bottom) {
@@ -15,6 +16,7 @@ class Chip {
     loc.set(bottom.loc.x, bottom.loc.y - ysize/2);
     vel = new PVector();
     vel.set(0, 12);
+    timer=0;
   }
 
   //Allows you to move Chip around
@@ -28,8 +30,10 @@ class Chip {
     }
   }
 
-  //Chip falls
 
+
+  //Chip falls
+  //adds gravity
   void fall() {
     loc.add(vel);
     vel.y += gravity;
@@ -47,14 +51,14 @@ class Chip {
 
   //Shows the image of chip
   void displaychip() {
-    image(chip,loc.x,loc.y,xsize,ysize);
+    image(chip, loc.x, loc.y, xsize, ysize);
   }
-  
+
   //Shows chip jumping
   void displaychipjump() {
-  image(chipjump,loc.x,loc.y,xsize,ysize);
+    image(chipjump, loc.x, loc.y, xsize, ysize);
   }
-  
+
   //Is Chip REALLY falling?
   boolean isFalling() {
     if (vel.y>0) {
@@ -63,7 +67,7 @@ class Chip {
     return false;
   }
 
-//Did you lose the game?
+  //Did you lose the game?
   boolean lost() {
     if (loc.y>height) {
       return true;
@@ -74,13 +78,22 @@ class Chip {
     loc.set(width/2-15, height-height/5);
   }
 
-//The regular jump of chip
+  //The regular jump of chip
   void jump() {
     vel.y = -10;
   }
-//The higher jump of chip
-  void highJump(){
+  //The higher jump of chip
+  void highJump() {
     vel.y = -12;
   }
-
+  
+  //slows gravity of chip
+  void defyingGravity(){
+    gravity=.08;
+  }
+  
+  //restores gravity
+  void allIsRightInTheWorld(){
+    gravity=.2;
+  }
 }

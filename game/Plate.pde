@@ -70,6 +70,7 @@ class Plate {
       loc.y+=10;
     
   }
+  
 
   //Checks to see if plate is at that basepoint
   boolean allAboutThatBase() {

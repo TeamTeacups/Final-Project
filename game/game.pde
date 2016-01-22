@@ -17,7 +17,7 @@ void setup() {
   
   //Powerup stuff
   
-  for(int i =0; i<4; i++){
+  for(int i =0; i<3; i++){
     powerup.add(new Powerups(random(width), random(height)));
   }
 }
@@ -37,9 +37,11 @@ void draw() {
     for (int j = 0; j<platform.size(); j++) {//all plates move down
       Plate k = platform.get(j);
       k.update();
+    }
+   for (int j = 0; j<powerup.size(); j++) {//all plates move down
       Powerups fun = powerup.get(j);
       fun.update();
-    }
+        }
   }
   
   

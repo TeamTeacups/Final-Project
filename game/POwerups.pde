@@ -58,5 +58,6 @@ class Powerups {
     }
   }
   
-  boolean isInContactWith(Chip doritos
+  //boolean isInContactWith(Chip doritos){
+  //}
 }

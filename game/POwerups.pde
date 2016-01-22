@@ -57,4 +57,6 @@ class Powerups {
       return false;
     }
   }
+  
+  boolean isInContactWith(Chip doritos
 }

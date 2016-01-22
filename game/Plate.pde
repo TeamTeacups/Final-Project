@@ -91,7 +91,7 @@ class Plate {
 
   //Checks to see if platform is a bowl.
   boolean soupTime() {
-    if ( randy < .4) {
+    if ( randy < .8) {
       return true;
     } else {
       return false;

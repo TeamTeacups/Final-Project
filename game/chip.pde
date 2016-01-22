@@ -49,21 +49,13 @@ class Chip {
   void displaychip() {
     image(chip,loc.x,loc.y,xsize,ysize);
   }
-<<<<<<< HEAD
   
   //Shows chip jumping
   void displaychipjump() {
   image(chipjump,loc.x,loc.y,xsize,ysize);
   }
   
-  //Is Chip really falling?
-=======
-  void displaychipjump() {
-  image(chipjump,loc.x,loc.y,xsize,ysize);
-  }
-
   //Is Chip REALLY falling?
->>>>>>> refs/remotes/origin/master
   boolean isFalling() {
     if (vel.y>0) {
       return true;
@@ -71,6 +63,7 @@ class Chip {
     return false;
   }
 
+//Did you lose the game?
   boolean lost() {
     if (loc.y>height) {
       return true;
@@ -81,7 +74,13 @@ class Chip {
     loc.set(width/2-15, height-height/5);
   }
 
+//The regular jump of chip
   void jump() {
     vel.y = -10;
   }
+//The higher jump of chip
+  void highJump(){
+    vel.y = -12;
+  }
+
 }

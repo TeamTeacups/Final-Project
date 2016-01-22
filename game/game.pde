@@ -36,19 +36,16 @@ void draw() {
       println("caught chip in frame " + frameCount);
       //o.update();
       chip.jump();
-<<<<<<< HEAD
-      if (o.isItBroken()) {
+
+      if (o.soupTime()) {
       } else {
-        println("Chip should be dead");
+        println("Chip should jump high");
         chip.isFalling();
       }
 
       if (chip.lost()) {
         chip.reset();
       }
-=======
-      
->>>>>>> refs/remotes/origin/master
     }
   }
 

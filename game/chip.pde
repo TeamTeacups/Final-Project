@@ -45,26 +45,17 @@ class Chip {
     }
   }
 
-<<<<<<< HEAD
-  //  void displaychipjump(float x,float y) {
-  //   image(chipjump, x,y);
-  // }
-=======
   //Shows the image of chip
   void displaychip() {
     image(chip,loc.x,loc.y,xsize,ysize);
   }
+  
+  //Shows chip jumping
   void displaychipjump() {
   image(chipjump,loc.x,loc.y,xsize,ysize);
   }
->>>>>>> refs/remotes/origin/master
-
-  void displaychip() {
-    image(chip, loc.x, loc.y);
-  }
-  void displaychipjump(float x, float y) {
-    image(chipjump, x, y);
-  }
+  
+  //Is Chip really falling?
   boolean isFalling() {
     if (vel.y>0) {
       return true;

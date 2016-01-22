@@ -35,10 +35,10 @@ class Plate {
 
   // Makes a new plate (REGULAR, BROKEN, BOWL)
   void create() {
-    if (isItBroken()) {
+    if (soupTime()) {
       regPlate();
     } else {
-      brokenPlate();
+      bowl();
     }
   }
 
@@ -76,19 +76,15 @@ class Plate {
 
 
 
-  //The broken Plate
-  void brokenPlate() {
-    fill(255);
+  //The bowl
+  void bowl() {
+    fill(0,45,0);
     ellipse(loc.x, loc.y, xsize, ysize);
-    //line(loc.x,loc.y-ysize/2,loc.x,loc.y+ysize/2);
-    line(loc.x, loc.y-ysize/2, loc.x-5, loc.y-2);
-    line(loc.x-5, loc.y-2, loc.x, loc.y);
-    line(loc.x, loc.y, loc.x+5, loc.y+2);
-    line(loc.x+5, loc.y+2, loc.x, loc.y+ysize/2);
+    //rect(loc.x-xsize/2,loc.y+ysize/2,xsize/3,ysize);
   }
 
-  //Checks to see if plate should be broken
-  boolean isItBroken() {
+  //Checks to see if platform is a bowl.
+  boolean soupTime() {
     if ( randy < .4) {
       return true;
     } else {

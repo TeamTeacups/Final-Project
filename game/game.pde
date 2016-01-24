@@ -1,3 +1,4 @@
+
 boolean play = false;
 Chip chip;
 ArrayList<Powerups> powerup = new ArrayList<Powerups>();
@@ -98,8 +99,21 @@ void draw() {
         down=true;
       } else {          //SLOW GRAVITY
         fun.timerInMotion();
+        chip.defyingGravity();
       }
     }
+
+    if (fun.timeIsUp()) {
+      fun.resetTimer();
+      chip.allIsRightInTheWorld();
+    }
+    
+    /*Plate t=platform.get(i);
+     /if(down&&chip.loc.y<=height-height/8){
+     println("Say something I'm giving up on you");
+     fun.update();
+     t.update();
+     }*/
     if (random(1) < .05 && powerup.size() == 0) {
       powerup.add(new Powerups(random(width), 0));
     }

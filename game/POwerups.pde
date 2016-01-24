@@ -24,7 +24,7 @@ class Powerups {
     lumiere= loadImage("LumiereComplete.png");
     randy= random(0, 1);
   }
-
+    //shows  either clogsworth of lumiere
   void display() {
     if (whoIsIt()) {
       youAreMySunshine();
@@ -32,19 +32,24 @@ class Powerups {
       beOurGuest();
     }
   }
-
+    //shows lumierre
   void youAreMySunshine() {
     image(lumiere, loc.x, loc.y);
   }
 
+  //shows cogsworth
   void beOurGuest() {
     image(cogsworth, loc.x, loc.y);
   }
 
+
+  //powerups can move doown
   void update() {
     loc.y+=10;
   }
   
+  
+  //is the powerup off the screen
   boolean newLife(){
     if (loc.y>=height){
       return true;
@@ -53,6 +58,8 @@ class Powerups {
     }
   }
 
+
+//percentage that one powerup shows
   boolean whoIsIt() {
     if (randy < .6) {
       return true;
@@ -71,17 +78,17 @@ class Powerups {
   }
   
   ///Clogsworth things
-  void timerInMotion() {
+  void timerInMotion() {  //timer starts
     println(timer);
     timer+=1;
   }
 
-  void resetTimer() {
+  void resetTimer() {    //timer is reset
     timer=0;
     println(timer);
   }
 
-  boolean timeIsUp() {
+  boolean timeIsUp() {    //timer is at the end
     if (timer==50) {
       return true;
     } else {

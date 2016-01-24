@@ -40,7 +40,7 @@ void draw() {
       Plate k = platform.get(j);
       k.update();
     }
-    for (int j = 0; j<powerup.size(); j++) {//all plates move down
+    for (int j = 0; j<powerup.size(); j++) {//all powerups move down
       Powerups fun = powerup.get(j);
       fun.update();
     }
@@ -75,8 +75,8 @@ void draw() {
     if (platform.size()<=5) {    //Limits the amount of plates
       platform.add(new Plate(o));
     }
-    o.create();
-    if (o.offScreen()) {
+    o.create();      //makes new platforms if platform is off screen
+    if (o.offScreen()) {      
       platform.remove(i);
       platform.add(new Plate(o));
     }
@@ -102,7 +102,7 @@ void draw() {
         chip.defyingGravity();
       }
     }
-
+    //timer for powerup (how long gravity will be slowed down for you
     if (fun.timeIsUp()) {
       fun.resetTimer();
       chip.allIsRightInTheWorld();

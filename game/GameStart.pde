@@ -48,7 +48,7 @@ class GameStart {
     }
 
     if (chip.dead()) {
-      background(0);
+      niall=5;
     }
   }
 }

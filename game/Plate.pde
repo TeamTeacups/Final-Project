@@ -48,7 +48,7 @@ class Plate {
   void update() {
     
       loc.y+=30;
-    
+      score++;
   }
 
   //Checks to see if plate is at that basepoint

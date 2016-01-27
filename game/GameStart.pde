@@ -28,7 +28,6 @@ class GameStart {
         t = o;
 
         chip.jump();
-        score++;
       }
     }
 

@@ -1,8 +1,9 @@
 class GameStart {
-  GameStart(){
+  GameStart() {
   }
   void gameStart() {
     background(255);
+ 
     chip.update();    //Updates Chip
     chip.fall();    //Makes chip fall
     fill(0);
@@ -19,6 +20,21 @@ class GameStart {
         k.update();
       }
     }
+   for (int i = platform.size()-1; i>=0; i--) {
+      Plate o=platform.get(i);
+      if (o.offScreen()) {
+        platform.remove(i);
+        platform.add(new Plate(o));
+      }
+      if (platform.size()<6) {
+        platform.add(new Plate(random(0, width), 0));
+      }
+      if (platform.size()>6) {    //Limits the amount 
+        platform.remove(i);
+      }
+
+      o.create();
+    }
     for (int i = platform.size()-1; i>=0; i--) {
 
       Plate o= platform.get(i); //gets each plate
@@ -31,27 +47,6 @@ class GameStart {
       }
     }
 
-    for (int i = platform.size()-1; i>=0; i--) {
-      Plate o=platform.get(i);
-      if (o.offScreen()) {
-        platform.remove(i);
-        platform.add(new Plate(o));
-      }
-      if(platform.size()<4){
-        platform.add(new Plate(random(0, width), 0));
-      }
-      if (platform.size()>5) {    //Limits the amount 
-        platform.remove(i);
-      }
-      
-      o.create();
-
-      /*if (o.allAboutThatBase()) {
-       o.update();
-       } */
-
-      
-    }
     if (chip.dead()) {
       background(0);
     }

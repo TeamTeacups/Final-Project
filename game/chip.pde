@@ -61,7 +61,7 @@ class Chip {
 
   //Make sure Chip's intitial velocity
   void jump() {
-      vel.y = -12;
+      vel.y = -loc.y/40;
   }
   
   //end game

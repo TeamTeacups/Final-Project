@@ -76,8 +76,5 @@ class Plate {
     ellipse(loc.x, loc.y, xsize, ysize);
   }
 
-  /*boolean isItBroken(){
-   if (){
-   }
-   }*/
+
 }

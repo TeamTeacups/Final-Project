@@ -119,8 +119,12 @@ void draw() {
     text("Click HERE", 250, 600);
   }
   if (niall==5 && mousePressed && mouseX>50 && mouseX<450 && mouseY>480 && mouseY<630) {
+    
+    chip.reset();
+    
     niall=1;
   }
+  
 }
 
 void keyPressed() {

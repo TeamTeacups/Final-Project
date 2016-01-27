@@ -72,4 +72,8 @@ class Chip {
     }
     return false;
   }
+  void reset(){
+    loc.set(width/2, 200);
+    vel.set(0, 12);
+  }
 }

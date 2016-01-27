@@ -2,24 +2,9 @@ class Starter {
   Starter() {
   }
   void starter() {
-    if (niall==5) {
-      background(0);
-      fill(26, 40, 100);
-      rect(50, 480, 400, 150);
-      fill(255);
-      text("GAME", 250, 300);
-      text("OVER", 250, 400);
-      textFont(mediumfont);
-      text("You Lost!", 250, 450);
-      textFont(bigfont);
-      text("To play again,", 250, 550);
-      text("Click HERE", 250, 600);
-      image(ahhh, 300, 10, width*scaleFactor21, height*scaleFactor33);
-    }
 
-    if (niall==5 && mousePressed && mouseX>50 && mouseX<450 && mouseY>480 && mouseY<630) {
-      niall=1;
-    }
+
+
     if (niall == 2) {
 
       //show the second screen - instructions

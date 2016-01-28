@@ -15,7 +15,7 @@ class Plate {
   }
   //Constructor 2
   Plate(Plate old) {
-    loc= new PVector(random(old.loc.x-200, old.loc.x+200), 0);
+    loc= new PVector(random(100, width-100), 0);
     xsize = 100;
     ysize = 10;
   }

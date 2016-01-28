@@ -76,11 +76,9 @@ void setup() {
   platform.add(new Plate(random(0, width), 200));
   platform.add(new Plate());
 
-  platform.add(new Plate(random(0, width), 300));
   platform.add(new Plate(random(0, width), 400));
   platform.add(new Plate(random(0, width), 600));
 
-  platform.add(new Plate(random(0, width), 100));
   //Chip stuff
   chip = new Chip(platform.get(0));
 
@@ -121,6 +119,7 @@ void draw() {
   if (niall==5 && mousePressed && mouseX>50 && mouseX<450 && mouseY>480 && mouseY<630) {
     
     chip.reset();
+    platform.add(new Plate());
     
     niall=1;
   }

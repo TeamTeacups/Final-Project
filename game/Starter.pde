@@ -87,11 +87,16 @@ class Starter {
       fill(0);
       textFont(okfont);
       text("Obstacles Include:", 250, 400);
+      text("Powerups Include:", 250, 100);
       textFont(mediumfont);
       text("Mrs.Potts:", 175, 475);
       text("Babette:", 325, 585);
+      text("Colored Plates:", 325, 200);
       textFont(smallfont);
       text("She wants Chip to take a bath", 175, 500);
+      text("These will give Chip a boost", 175, 250);
+      text("in order to avoid the necessary evil", 175, 300);
+      text("that is bathing.", 175, 350);
       text("So she will make Chip lose", 175, 525);
       text("She will dust Chip away!", 325, 610);
       text("And Chip will fall to the sink!", 325, 635);

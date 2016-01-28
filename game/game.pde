@@ -27,7 +27,7 @@ boolean start = false;
 int score = 0;
 GameStart gamestart;
 Starter starter;
-ArrayList<Enemies> enemies = new ArrayList<Enemies>();
+ArrayList<Enemies> enemies = new ArrayList<Enemies>();//to decide which image will appear one frame at a time 
 Enemies e;
 
 
@@ -125,7 +125,7 @@ void draw() {
 
     chip.reset();
     platform.add(new Plate());
-    enemies.remove(i);
+    enemies.remove(i);//removes enemies as they fall
     score=0;
     niall=1;
   }

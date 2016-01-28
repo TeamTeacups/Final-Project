@@ -3,7 +3,7 @@ class GameStart {
   }
   void gameStart() {
     background(255);
- 
+
     chip.update();    //Updates Chip
     chip.fall();    //Makes chip fall
     fill(0);
@@ -44,10 +44,22 @@ class GameStart {
         chip.jump();
       }
     }
+    if (random(15) < .05 && enemies.size() == 0) {
+      enemies.add(new Enemies());
+    }
+    
+  for (int i = 0; i < enemies.size(); i++) {
+    e.create();
+    Enemies e = enemies.get(i);
+    e.update();
+    e.display();
+    if (e.loc.y > height) {
+      enemies.remove(i);
+    }
+  }
 
     if (chip.dead()) {
       niall=5;
     }
   }
-
 }

@@ -76,4 +76,7 @@ class Chip {
     loc.set(width/2, 200);
     vel.set(0, 12);
   }
+  void hitBottom(){
+   loc.y += 4;
+  }
 }

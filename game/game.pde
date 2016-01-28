@@ -104,7 +104,7 @@ void setup() {
 void draw() {
 
   starter.starter();
-  if (start) {
+  if (niall!=5&&start) {
     gamestart.gameStart();
   }
   if (niall==5) {
@@ -112,8 +112,9 @@ void draw() {
     fill(26, 40, 100);
     rect(50, 480, 400, 150);
     fill(255);
-    text("GAME", 250, 300);
-    text("OVER", 250, 400);
+    text("GAME OVER", 250, 300);
+    text("Score:"+score, 250, 370);
+
     textFont(mediumfont);
     text("You Lost!", 250, 450);
     textFont(bigfont);
@@ -124,6 +125,7 @@ void draw() {
 
     chip.reset();
     platform.add(new Plate());
+    enemies.remove(i);
     score=0;
     niall=1;
   }

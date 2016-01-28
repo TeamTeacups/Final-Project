@@ -10,7 +10,7 @@ class Enemies {
     } else {
       img = loadImage("duster.gif");
     }
-    loc=new PVector (random(width), 0);
+    loc=new PVector (random(100,width-100), 0);
     scaleFactor=.25;
     randy=random(0, 1);
   }

@@ -10,6 +10,9 @@ class GameStart {
     text("Score:"+score, 250, 50);
     for (int i = platform.size()-1; i>=0; i--) {
       Plate o=platform.get(i);
+      if(platform.size()>8){
+        platform.remove(0);
+      }
       if (o.offScreen()) {
         platform.remove(i);
         platform.add(new Plate(o));
@@ -17,7 +20,7 @@ class GameStart {
       if (platform.size()<4) {
         platform.add(new Plate(random(0, width), 0));
       }
-
+      
 
       o.create();
     }

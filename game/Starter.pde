@@ -34,9 +34,7 @@ class Starter {
       text("Use arrow keys: Left and Right", 250, 265);
       text("to make sure Chip has a plate to land on!", 250, 315);
       text("Keep chip far away from the sink!", 250, 365);
-      text("Reach out to one of his buddies for help!", 250, 415);
-      text("These powerups will make Chip go higher!", 250, 465);
-      text("If you land on a broken plate or an obstacle, Chip will fall!", 250, 515);
+      text("Don't touch an obstacle!", 250, 515);
       textFont(mediumfont);
       text("Good Luck!", 250, 575 );
 
@@ -81,8 +79,6 @@ class Starter {
 
       //white background 
 
-      image(clock, 400, 110, width*scaleFactor33, height*scaleFactor33);
-      image(candles, 25, 230, width*scaleFactor33, height*scaleFactor33);
       image(mom, 325, 415, width*scaleFactor43, height*scaleFactor5);
       image(duster, 30, 530, width*scaleFactor31, height*scaleFactor31);
 
@@ -90,25 +86,15 @@ class Starter {
 
       fill(0);
       textFont(okfont);
-      text("Power-ups Include:", 250, 100);
       text("Obstacles Include:", 250, 400);
       textFont(mediumfont);
-      text("Cogsworth:", 175, 175);
-      text("Lumière:", 325, 275);
       text("Mrs.Potts:", 175, 475);
       text("Babette:", 325, 585);
-      text("Shattered Plates:", 175, 700);
       textFont(smallfont);
-      text("He will slow down the rising water", 175, 200);
-      text("This gives Chip more time to get higher!", 175, 225); 
-      text("Using the heat from his candles,", 325, 300);
-      text("He will make Chip float higher!", 325, 325);
       text("She wants Chip to take a bath", 175, 500);
       text("So she will make Chip lose", 175, 525);
       text("She will dust Chip away!", 325, 610);
       text("And Chip will fall to the sink!", 325, 635);
-      text("They are not a safe place to land,", 175, 725);
-      text("Chip will fall right through them!", 175, 750);
 
       //text on more instructions page
 

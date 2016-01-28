@@ -125,7 +125,7 @@ void draw() {
 
     chip.reset();
     platform.add(new Plate());
-    enemies.remove(i);//removes enemies as they fall
+    enemies.remove(0);//removes enemies as reset
     score=0;
     niall=1;
   }

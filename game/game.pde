@@ -27,6 +27,9 @@ boolean start = false;
 int score = 0;
 GameStart gamestart;
 Starter starter;
+ArrayList<Enemies> enemies = new ArrayList<Enemies>();
+Enemies e;
+
 
 void setup() {
 
@@ -97,6 +100,7 @@ void setup() {
 
   //heights and widths of buttons on opening page
 }
+
 void draw() {
 
   starter.starter();
@@ -117,14 +121,14 @@ void draw() {
     text("Click HERE", 250, 600);
   }
   if (niall==5 && mousePressed && mouseX>50 && mouseX<450 && mouseY>480 && mouseY<630) {
-    
+
     chip.reset();
     platform.add(new Plate());
-    
+
     niall=1;
   }
-  
 }
+
 
 void keyPressed() {
   chip.key();

@@ -43,26 +43,34 @@ class GameStart {
       if (o.isInContactWithChip(chip.loc)&&chip.isFalling()) { //if chip touches plate while falling
         down = true;   //plates move down
         t = o;
-
-        chip.jump();
+  //Decides if platform is plate or bowl
+        if (o.soupTime()) {
+        
+          chip.jump();
+        } else {
+          println("Chip should jump high");
+          chip.isFalling();
+          o.bigUpdate();
+          chip.bigJump();
+        }
       }
     }
     if (random(15) < .05 && enemies.size() == 0) {
       enemies.add(new Enemies());
     }
-    
-  for (int i = 0; i < enemies.size(); i++) {
-    
-    Enemies e = enemies.get(i);
-    e.update();
-    e.display();
-    if (e.loc.y > height) {
-      enemies.remove(i);
+
+    for (int i = 0; i < enemies.size(); i++) {
+
+      Enemies e = enemies.get(i);
+      e.update();
+      e.display();
+      if (e.loc.y > height) {
+        enemies.remove(i);
+      }
+      if (e.isInContactWith(chip)) {
+        niall=5;
+      }
     }
-    if(e.isInContactWith(chip)){
-      niall=5;
-    }
-  }
 
     if (chip.dead()) {
       niall=5;

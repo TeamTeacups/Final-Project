@@ -1,31 +1,44 @@
 class Plate {
   PVector loc;
   int xsize, ysize;
-
+  float randy;
   //Constructor 1
   Plate() {
     loc= new PVector(width/2, 790);
     xsize = 500;
     ysize = 10;
+    randy= random(0, 1);
   }
-  Plate(float x, float y){
-    loc = new PVector(x,y);
+  Plate(float x, float y) {
+    loc = new PVector(x, y);
     xsize = 100;
     ysize = 10;
+    randy= random(0, 1);
   }
   //Constructor 2
   Plate(Plate old) {
     loc= new PVector(random(100, width-100), 0);
     xsize = 100;
     ysize = 10;
+    randy= random(0, 1);
   }
 
-  // Makes a new plate
-  void create() {
+  //Reular Platforms
+  void regPlate() {    
     fill(255);
-    stroke(2);
+    stroke(0);
     ellipse(loc.x, loc.y, xsize, ysize);
   }
+
+  // Makes a new plate (REGULAR, BROKEN, BOWL)
+  void create() {
+    if (soupTime()) {
+      regPlate();
+    } else {
+      bowl();
+    }
+  }
+
 
   //Checks to see if plate is still on screen
   boolean offScreen() {
@@ -46,9 +59,15 @@ class Plate {
 
   //Makes plates move down
   void update() {
-    
-      loc.y+=30;
-      score++;
+
+    loc.y+=30;
+    score++;
+  }
+
+  void bigUpdate() {
+
+    loc.y+=50;
+    score++;
   }
 
   //Checks to see if plate is at that basepoint
@@ -69,12 +88,19 @@ class Plate {
     }
   }
 
-  void brokenPlate() {
-    fill(255);
-
-    triangle(loc.x+10, loc.y, loc.x-10, loc.y, loc.x, loc.y+10);
+  //The bowl
+  void bowl() {
+    fill(0, 45, 0);
     ellipse(loc.x, loc.y, xsize, ysize);
+    //rect(loc.x-xsize/2,loc.y+ysize/2,xsize/3,ysize);
   }
 
-
+  //Checks to see if platform is a bowl.
+  boolean soupTime() {
+    if ( randy < .8) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

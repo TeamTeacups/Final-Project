@@ -72,11 +72,18 @@ class Chip {
     }
     return false;
   }
+  //resets Chip
   void reset(){
     loc.set(width/2, 200);
     vel.set(0, 12);
   }
+  //changes location of chip it it hits the bottom
   void hitBottom(){
    loc.y += 4;
+  }
+  
+  //Make sure Chip's intitial velocity for a bowl touch
+  void bigJump() {
+      vel.y = -loc.y/30;
   }
 }

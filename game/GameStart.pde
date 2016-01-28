@@ -49,12 +49,15 @@ class GameStart {
     }
     
   for (int i = 0; i < enemies.size(); i++) {
-    e.create();
+    
     Enemies e = enemies.get(i);
     e.update();
     e.display();
     if (e.loc.y > height) {
       enemies.remove(i);
+    }
+    if(e.isInContactWith(chip)){
+      niall=5;
     }
   }
 

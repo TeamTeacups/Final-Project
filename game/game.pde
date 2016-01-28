@@ -124,7 +124,7 @@ void draw() {
 
     chip.reset();
     platform.add(new Plate());
-
+    score=0;
     niall=1;
   }
 }

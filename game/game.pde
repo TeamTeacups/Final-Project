@@ -125,7 +125,7 @@ void draw() {
 
     chip.reset();
     platform.add(new Plate());
-    if (enemies!=0) {
+    if (enemies.size()!=0) {
       enemies.remove(0);//removes enemies as reset
     }
     score=0;
